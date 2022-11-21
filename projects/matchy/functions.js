@@ -69,15 +69,27 @@ function remove(animals, nameString){
 //    - Adds this new Object to the `animals` Array, **only** if all the other conditions pass.
 //    - Make sure it works.
 
-function add(animals, nameString){
+function add(animals, animalObject){
+   
+var nameTruth
 
-    for (i = 0; i < animals.length; i++){
-        if(animals[i].name === nameString){
-            return animals[i]
-        } 
+  var animalName = animalObject.name;
+    var uniqueName = function(){ for (var i = 0; i < animals.length; i++){
+     return animals[i].name === animalName
+    }}
+
+    if(animalObject.name.length >= 1 && animalObject['species'].length >= 1 && uniqueName() === true){
+        return animals
+    // } else if (animalObject.name.length > 0 && animalObject.species.length > 0 && uniqueName() === false){
+    //     return animals.push(animalObject)
+    } else {
+        return animals.push(animalObject)
     }
-    return null
     }
+
+
+
+    
 
 
 
