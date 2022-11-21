@@ -91,6 +91,8 @@ function typeOf(value) {
     var array = [];
     array.push(value);
     var typeNull = array[0]
+        if (value)
+    var entryArray = Object.entries(value)
     
         if(typeNull === null){
             return 'null'
@@ -106,7 +108,7 @@ function typeOf(value) {
             return 'boolean'
         } else if (Array.isArray(value)){
             return 'array'
-        } else if (typeof value === 'object'){
+        } else if (entryArray.length >= 1){
             return 'object'
         } else {
             return 'date'
