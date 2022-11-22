@@ -63,15 +63,14 @@ function makeContactList() {
         }
      }
     } 
+
     contactObject.removeContact = function(contact){ 
-        for (var j = 0; j < contacts.length; j++){
-            var newContacts = []
-            if (contacts[j] !== contact){
-            newContacts.push(contacts[j])
-         }
-         return newContacts;
+      
+    return contacts.filter(e =>  e.nameFirst === contact.nameFirst)
+
         } 
-    }
+
+
     contactObject.printAllContactNames = function(){}
 
 

@@ -46,11 +46,13 @@ function arrayOrObject(collection) {
 //////////////////////////////////////////////////////////////////////
 
 function capitalizeWord(string) {
+  
+  
+  
     var array = string.split('');
   var letter = array[0];
-  var bigLet = letter.toUpperCase();
   array.shift();
-  array.unshift(bigLet)
+  array.unshift(letter.toUpperCase())
   return array.join('')
 
 }
@@ -63,6 +65,7 @@ function capitalizeAllWords(string) {
     
 
 
+
     
 }
 
@@ -71,6 +74,11 @@ function capitalizeAllWords(string) {
 //////////////////////////////////////////////////////////////////////
 
 function welcomeMessage(object) {
+
+
+
+return 'Welcome ' + object.name[0].toUpperCase() + '!'; 
+
 
 }
 

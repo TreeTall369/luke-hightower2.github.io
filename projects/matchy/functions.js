@@ -75,7 +75,7 @@ var nameTruth
 
   var animalName = animalObject.name;
     var uniqueName = function(){ for (var i = 0; i < animals.length; i++){
-     return animals[i].name === animalName
+     return animals[i].name === animalName;
     }}
 
     if(animalObject.name.length >= 1 && animalObject['species'].length >= 1 && uniqueName() === true){
@@ -83,7 +83,7 @@ var nameTruth
     // } else if (animalObject.name.length > 0 && animalObject.species.length > 0 && uniqueName() === false){
     //     return animals.push(animalObject)
     } else {
-        return animals.push(animalObject)
+        return animals.push(animalObject);
     }
     }
 
