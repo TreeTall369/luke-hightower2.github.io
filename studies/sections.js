@@ -30,7 +30,8 @@
  *          
  *          Edit and rewrite some parts
  *          Write Hoisting section
- * 
+ *          What's with the 0. 1. 2. format? Really necessary?
+ *          Dont forget!  CONSOLE.LOG() each part...
  */
 
 var exampleVariable;
@@ -50,7 +51,7 @@ let i = 0;
 /**
  *          DATA TYPES
  *  
- *          number boolean  array object function undefined null  Nan Infinity and neg.Infinity 
+ *          
  *          what is primitive and complex data types 
  *          what is copy by reference / copy by value
  * 
@@ -58,8 +59,30 @@ let i = 0;
  * 
  * 
  * 
+ *          The way we use the word data can be tricky. To be precise about the word referring to information
+ *          data are collections of datum. Some data is a collection of these collections. This could be
+ *          considered entirely useless information though it would still be plural. 
+ *          
+ *          Types of data, and the nuances of their differences is very important! To begin, a list of 
+ *          data types: 
+ *                  number 99 - numbers function mathematical ie decimal point and aritmetic operators, primitive
+ *                  boolean true or false - true is greater than false, true is 1 and false is 0? primitive
+ *                  string 'anything inside the quotes' - characters have number value... primitive data
+ *                  array  ['information'] - complex data that holds other data, can be empty
+ *                  object  { key:value } - complex data hold info in unorderlist by key:value pairs, use commas
+ *                  function   function(){} - can take input, can return output, if called fx's are expressions
+ *                  undefined  is undefined - signaling lack of 'pointing' to anything
+ *                  null  is an object... 
+ *                  Nan         
+ *                  Infinity  
+ *                  neg.Infinity
  * 
  * 
+ *                  What are primitive data types? Complex?
+ *                  What is copy by value? When does it matter?
+ *                  What is copy by reference? How it differs from copy by value? 
+ * 
+ *                  dont forget console.log()
  */
 
 
