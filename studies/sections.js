@@ -242,9 +242,43 @@ let i = 0;
  *              sending a complex chain of actions with desired outcomes honed in upon. A side note, we do not use 
  *              return within the action 
  * 
- *          Switch statements are a modified version of if
+ *          Switch statements are a modified version of if, else if, else statements. As mentioned above we can 
+ *          build the conditional links to be as long as we'd like however depending upon the desire actions
+ *          within the curly braces { performance action } there is a simpler way. Switch statements have the
+ *          syntax: 
+ *                       var cardTotal = 10;
+ *                       var itemNote =  'The following item has just been delivered!'  
+ *                       var totalNote = 'Your card balance is now '
+ *                       var proEx = 'Novelty Toilet Paper';
+ *                       var defaultMsg = 'Sorry, you have the wrong number!'
+ *                       
+ *                          switch (proEx){
+ *                        case 'Funny Shaped Soap':
+ *                        console.log(itemNote + ':  ' + proEx + ' ' +  + cardTotal--);
+ *                          break;
+ *                        case 'Novelty Toilet Paper with Famous Novels':
+ *                         console.log(itemNote + ':  ' + proEx + ' ' +  + cardTotal--);
+ *                          break;
+ *                        case 'Slippery Slippers':
+ *                         console.log(itemNote + ':  ' + proEx + ' ' +  + cardTotal--);
+ *                          break;
+ *                        default:  
+ *                              defaultMsg;
+ *                          }
  * 
- *          
+ *                 In this context we are able to do several things using variables with global scope and a switch
+ *                  statement that eliminates some lines of code and allows the developer to view and adjust easily. 
+ *                 Each string in the the list of variables above is organized and easily read. The setup of the 
+ *                 sentence is also easier to distinguish than the syntax of els if statements. The syntax of switch 
+ *                  statements has case followed by a value (expression) then a : colon. Next line is an action ended
+ *                 by a semi-colon. The next line is break; also ended by a semi-colon. The last case can be 
+ *                  substituted with a default: with just a colon again, followed by code on the next line and a ; 
+ *                 though it does not have to end with a default: (condtionless) line. 
+ * 
+ * 
+ * 
+ *                  examples
+ *                  console.log
  * 
  * 
  * 
@@ -263,11 +297,63 @@ let i = 0;
  *      loop forward, backward in array 
  *      loop over object, over array
  * 
+ *     Loops. Ubiquitously helpful. Loops are working in our lives and minds all over the place. The notion 
+ *     of moving through a list is looping. A list, a collection of ideas or information is the sort of 
+ *     concept we use to do all sorts of things in day-to-day life. To shop accurately for food we'll 
+ *     form some kind of equation for each item in the list. A list of 10 things where the frozen things
+ *      have to be picked up last, or if somethng isnt there we have to skip it, maybe get something else.
+ *     Looping, moving through, iterating is essential to developing websites. It's evident that a website
+ *     needs to be able to access a wide range of lists and to perform a range actions on the indices in 
+ *     those lists as well. To outline a loop or define the path it will travel we create a starting point,
+ *     an ending point, and the patten in which it will move. 
+ *     
+ *                   for-loop's syntax are as such:
+ * 
+ *                                START POINT        END POINT          PATTERN (update)
+ *                          for (var index = 0; index < -------.length; index++){
+ *                                     perform action upon each index               
+ *                                  }
+ * 
+ *           The example above is a for loop we would use to iterate over something. What is that something?
+ *      Why is the 'thing we loop over' in the end point? Both start point and end point need a number to run. 
+ *      The difference therein results in how many times it will loop (iterate). By this we can loop over an 
+ *      Array from 0 to end by using the .length property. To reverse the direction the .length property will be
+ *      most effective at the starting point since the 'end' of the array is where the iteration will need to
+ *      start. 
+ * 
+ *      As we can see however Loops don't need to pair linked with a collection. If we wish to print numbers
+ *      for example or perform the same action several times we can use loops. The for loop would simply have a 
+ *      given number as the start and end point to perform this. We can however use another loop called the
+ *      while loop. While loops can do essentially the things as a for loop. However there are exceptions and
+ *      special scenarios. The syntax for a while loop is as such:
+ * 
+ *             var count = 0; 
+ *             var array = []
+ *             var seats = 99
+ * 
+ *          while (count < seats ){
+ *                 
+ *               array.push('open') 
+ *               console.log('Enjoy The Show!')  
+ *               count++ 
+ * 
+ *                  }
+ * 
+ *          Above we have a while loop that compares two value with the lesser operator. 'While' count is
+ *          less than seats (seats being the number 99) the loop will perfom the code within the curly braces
+ *          So in this case we are going to push into a literal array as well as log to the console our special
+ *          note. These variables can be adjusted as need too by reassigning the count and seats variable. While 
+ *          loops however, must have this opening variable that will be incremented in the code block, otherwise
+ *          there is no loop. The code block will fire without ever reaching its end thus creating an infinite
+ *          loop. 
  * 
  * 
- * 
- * 
- * 
+            for-in loop
+
+
+ *          console.log
+ *          examples
+ *     
  * 
  * 
  */
@@ -285,6 +371,51 @@ let i = 0;
  *      Scope: functions can see and modify variable in parent and global scopes, inverse not true
  *      Closures: functions form closures arpund the data they house. if an object returned from the function 
  *      and is held in memory somewhere (referenced), that closrue stays alive, and data can contunue to exist in these closures!
+ * 
+ *      Functions are the most profound aspect of JavaScript. Functions are declared, in this phase they are 
+ *      are statement and not an expression. A function is declared to draw together various needed actions
+ *      and re-use what is encapsulated in the function. Functions eliminate 're-writing' code over and over. 
+ *      They can be declared two ways: 
+ * 
+ *          var exampleFx = function(parameterOne, parameterTwo){ 
+ *              var testFx = parameterOne + ' and ' + parameterTwo;
+ *                  return  testFx
+ *                      }
+ * 
+ *        This version sets the function name in variable form. The parameters are then indicated within the () and 
+ *        the code block in written within the {}. A function declared like this allows us to see the function assigned
+ *        to the variable which aids in following the passage of functions through variable assignments. While written 
+ *        like this: exampleFx; the function is an object but not invoked. It remains a statement not expression. This 
+ *        is the second version of :
+ * 
+ *       Calling a function or invoking a function, or the expression of the function look like this:
+ * 
+ *            function exampleFx(parameterOne, parameterTwo){ 
+ *                  var testFx = parameterOne + ' and ' + parameterTwo;
+ *                  return  testFx;
+ *                      }
+ *                 
+ *            var favDishes = exampleFx('pumpkin pie', 'whipped cream');
+ *            console.log(favDishes);
+ * 
+ *        In this example we have a variable assign to a function being expressed. That variable is then being logged
+ *        to the console. So it should say pumpkin pie and whipped cream. This function is using parameters which have
+ *        been coded into the function using camelCase. This way is not required (so-to-speak). There could be a
+ *        simpler way to find desired results using the arguments object. Arguments is a keyword that references the
+ *        ( ) where we put the parameters as though it were an array. By this we can put multiple values into the 
+ *        ( value1, value2, value3 ) and we can access those within the {} by use of argument[0] or argument[1].
+ *        The bracket notation points to the next value after the comma. This is help with unknown unknowns. 
+ * 
+ * 
+ *        
+ *       
+ *      
+ * 
+ * 
+ * 
+ * 
+ * 
+ * 
  * 
  * 
  * 
