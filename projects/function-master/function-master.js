@@ -62,12 +62,33 @@ function capitalizeWord(string) {
 //////////////////////////////////////////////////////////////////////
 
 function capitalizeAllWords(string) {
+    var openArray = [];
+    var split = string.split(' ');
+      
+        for (var f = 0; f < split.length; f++){
     
-
-
-
+        var letter = split[f][0];  
+        var parWord = split[f].split('')  
+        openArray.push(parWord)
     
-}
+            }
+    
+    var lastArray = []
+    
+        for (var a = 0; a < openArray.length; a++){
+      
+        var mLetter = openArray[a][0];
+        openArray[a].shift();
+        openArray[a].unshift(mLetter.toUpperCase());
+        lastArray.push(openArray[a].join(''));
+        var sentenceChange = lastArray.join(' ');
+      
+    }
+    
+    return sentenceChange;
+      
+    }
+    
 
 //////////////////////////////////////////////////////////////////////
 // Function 7 - Welcome Message //////////////////////////////////////
