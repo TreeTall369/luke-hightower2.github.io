@@ -94,11 +94,85 @@ let i = 0;
  * 
  *               assignment arithmetic comparison logical unary ! typeof, - ternarty a ? b : c
  * 
+ *      Operators are links by which connect variables. In a metaphorical sense, Operators are conjunctions that 
+ *      bring together each piece of the language to form a conherent thought. Without conjuctions no sense could 
+ *      be made at all. Operators are categorized based on their purpose. We'll thorouhly describe and exemplify 
+ *      each of them. 
+ * 
+ *      Assignment Operators: 
+ *              The = sign is the seminal assignment operator. This differs greatly from == and ===. The = can 
+ *              be followed by a plus =+ as such minus =- and =*, =/, **= etc. The function the assignment operator is 
+ *              extending the 'point to' effect as mention above. We'll assign variables to expressions throughout our
+ *              code to bring about our intention. 
  * 
  * 
+ *              examples 
+ *                  
+ *              
  * 
+ *      Arithmetic Operators:
  * 
+ *              As is evident in their name the arithmetic operators are for mathmatical purposes. Most are familiar +, -, /, * 
+ *              However some ar orignal to JavaScript. Like modulus opertaor % which when placed between to number will return
+ *              the remainer as a whole number. The carrot ^ functions to indicate an exponent. And do remember the = sign 
+ *              will not be neccessary to return a value like writing our math problems. There are other mathmatical elements
+ *              in JavaScript eg math.Random(), parseFloat() etc.. It's important to notice the extent of math within 
+ *              JavaScript and how it is represented differtly than common mathmatics. 
+ *              
+ *              adding strings, adding strings and numbers
+ *              increment, decrement
+ *              examples
+ *              console
  * 
+ *      Comparison Operators:
+ * 
+ *              Comparisons are made in JavaScript like the words: 'is equal' and 'greater' and 'lesser than' are used
+ *              in conversation. Though this with much greater specificity. Operators == and ===. Signfy values being the same.
+ *              The === reprensently being strictly equal to, ie each character. The == provides a more inclusive equality where
+ *              numbers and string representations of number are equal. The < > are used as one would prdeicr with number
+ *              values simiarly with <= and >=. These operator have itnering usefulness when applied to strings and to boolean
+ *              values. True is greater than False. An letter have numerical representation used to alphabetize them with 
+ *              special method. Essentially the < > Operators have several other uses beyond numbers. Lastly the bang operator
+ *              is another key tool. !== and != both mean the opposite of ther predecessor. Not equal, stricly, loosely. 
+ * 
+ *              examples
+ *              console
+ *      
+ *      Logical Operators:
+ * 
+ *              Logical Operators, this operators work within conditional statements ie if, else if, else... statements.
+ *              These operators include the && double ampersand to mean A &&(and) B are yada yada yada. Both this to be true
+ *              both values A,B must be in agreement. For example if A && B are numbers above 10... If they are indeed above
+ *              ten this expression is true. Otherwise if A is 9 or lower it will not be true. If we want code that will be 
+ *              more inclusive and say that A or B can be something we'll use the || or opertar. A || B can be above ten 
+ *              for our conditional statement to express true. Lastly, there is ! which like above signfies not being equal. 
+ *              An example of this is if (!varExample){ varExample++ }. The condition is the variables negation which could
+ *              be the product of another function or expression. 
+ * 
+ *              example
+ *              console
+ * 
+ *
+ *              
+ *      Unary Operators:
+ * 
+ *             Unary Operators are refering to single variable operations. Simply the operand and one variable. Examples 
+ *              of these include +varExample and -varExample, which will turn the value into a number or its negative, or typeof varExample, which will 
+ *              return a string of the type of value (with some exceptions). Others are instanceof and !
+ * 
+ *              example
+ *              console
+ *  
+ *      Ternary Operator:
+ * 
+ *            The Ternary Operator is also under the umbrella of comparison operators. This is best explained by reading
+ *              out the syntax, A ? B : C. Out loud so-to-speak, this is If A is true do B, if false do C. Using the ternary
+ *           will having a condtion A (eg. age >= 21) followed by to outcomes B ('may enter the bar') and : C ('not allowed inside')
+ *           If the age being equal or above 21 is true the value of the expression will be whatever is first, if false then what 
+ *           then the second outcome will be the value. 
+ * 
+ *          example
+ *          console
  * 
  */
 
@@ -112,9 +186,23 @@ let i = 0;
  * 
  *            with operators, with string methods
  * 
+ *          Strings are a crucial part of JavaScript. Our ability to manipulate words in 
+ *          any way possible will be eseential throughout website development. Spellcheck, predictive-text
+ *          text upload, password chechking, etc all involve the movement of strings. Strings, like arrays
+ *          have indices going from 0 - very large from left to right. We can use for loops to 
+ *          take a string and loop through each of it's characters. There are critical methods to strings
+ *          that allow us to find characters, splits the string up into an array and join the string from an
+ *          array back into string, als strings can be upper and lower cased etc. Each letter of the alphabet 
+ *          case aside is also represented as a nimber code allowing us to pass the string info in multiple
+ *          ways and to compare strings in helpful way too. The + operator is always partiuclarly helpful in 
+ *          concatenating strings though the + often needs ' ' around it to make legible sentences. The manipulation 
+ *          of strings parallel that of arrays. Both have indexes and are accessible through bracket notation.
+ *          Develops are commonly moving values between arrays and strings depending neseiccty becuse of this 
+ *          simillarity. 
  * 
- * 
- * 
+ *          examples
+ *          list of methods
+ *          console
  * 
  * 
  */
@@ -127,6 +215,36 @@ let i = 0;
  * 
  *          if, else if, else --- switch statements
  * 
+ *          Control Flow refers almost exclusively to conditional statements and the power they give
+ *          a developer to pass values through a chain of conditions (boolean values) to determine what action
+ *          the data requires. In a general sense control flow is filtering with conditional statements as 
+ *          our sifter. We must ask if numerous aspects of a piece of data are true (e.g. if its a number, big, 
+ *          small, a letter, case, length etc) and to do this we have to be thoughtful or at least flexible 
+ *          about how we arrange the control flow. Certain details need to be checked first, is what that means.
+ *          At times the path of the condtions needed to get a function do what it needs to do is unexpected. Thus 
+ *          it is advisable to experiment with different arrangements for different outcomes. Along with finding 
+ *          clever ways to filter data we need to be mindful of using the simplest and least repetitive code
+ *          when developing control flows. A simple code sometimes starts out messy so working it down to a
+ *          more refined method is key to the best control flow. 
+ *             if, else if and else statements form a trio. To properly utilize these we'll complete all three
+ *          elements --- 
+ * 
+ *          first part:             if(condition){
+ *                            perform action   } 
+ *          second part:          else if(condtion){
+ *                            perform action  
+ *          last part:             } else {
+ *                            perform action }
+ *           
+ *              In this context the first and second conditions will be written within the parethesis while the 
+ *              last part does not have a condition. The last: else{ } is essentially a default action. We can fill
+ *              this chain of code with as many "else if" conditions as needed. This provides the develop a way of 
+ *              sending a complex chain of actions with desired outcomes honed in upon. A side note, we do not use 
+ *              return within the action 
+ * 
+ *          Switch statements are a modified version of if
+ * 
+ *          
  * 
  * 
  * 
