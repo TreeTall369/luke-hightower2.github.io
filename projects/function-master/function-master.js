@@ -96,10 +96,15 @@ function capitalizeAllWords(string) {
 
 function welcomeMessage(object) {
 
+    var name = object.name;
+    var nameArray = name.split('');
+    var letter = nameArray[0];
 
+    nameArray.shift();
+    nameArray.unshift(letter.toUpperCase())
+    var xName = nameArray.join('')
 
-return 'Welcome ' + object.name[0].toUpperCase() + '!'; 
-
+    return 'Welcome ' + xName + '!'
 
 }
 
@@ -108,6 +113,24 @@ return 'Welcome ' + object.name[0].toUpperCase() + '!';
 //////////////////////////////////////////////////////////////////////
 
 function profileInfo(object) {
+    var nInfo = object.name;
+    var nArray = nInfo.split('');
+    var letterO = nArray[0];
+
+    nArray.shift();
+    nArray.unshift(letterO.toUpperCase())
+    var yName = nArray.join('')
+
+    var sInfo = object.species;
+    var sArray = sInfo.split('');
+    var letterP = sArray[0];
+
+    sArray.shift();
+    sArray.unshift(letterP.toUpperCase())
+    var zName = sArray.join('')
+
+    return yName + ' is a ' + zName; 
+
 
 }
 
@@ -116,6 +139,16 @@ function profileInfo(object) {
 //////////////////////////////////////////////////////////////////////
 
 function maybeNoises(object) {
+   
+    if(Object.values(object).length === 0){
+       return 'there are no noises'
+      } else if (!object.noises){
+        return 'there are no noises'
+      } else if (object.noises.length === 0 || object.noises.length === undefined){
+        return 'there are no noises'
+      } else { 
+        return object.noises.join(' ')
+      }
 
 }
 
@@ -125,6 +158,23 @@ function maybeNoises(object) {
 
 function hasWord(string, word) {
 
+    var splitUp = string.split(' ')
+    var wArray = []
+
+    for (var i = 0; i < splitUp.length; i++){
+      if (splitUp[i] === word){
+      wArray.push(splitUp[i])
+      } else {}  
+    }
+    
+    var result; 
+
+      if(wArray.length > 0){
+        result = true
+      } else {
+        result = false
+      }
+   return result
 }
 
 //////////////////////////////////////////////////////////////////////
@@ -132,6 +182,12 @@ function hasWord(string, word) {
 //////////////////////////////////////////////////////////////////////
 
 function addFriend (name, object) {
+        
+    var array = object.friends
+    array.push(name)
+    object.friends = array;
+
+    return object
 
 }
 
@@ -141,6 +197,28 @@ function addFriend (name, object) {
 
 function isFriend(name, object) {
 
+    var array = object.friends
+    var result = []; 
+    
+    if (!object.friends){
+            console.log('false -- no friend property to check')
+    } else if (object.friends.length > 0){
+            console.log('--- there is a friend property')
+              for (var k = 0; k < array.length; k++){
+                      if (array[k] === name){
+                        console.log('--- friend is already on the list')
+                    result.push(array[k]);
+                    } else {
+                        console.log('unfound at index ' + [k])
+                    }
+                }
+            } else {
+              console.log('--- empty friend array')
+            }
+    
+    return result.length > 0;
+    
+
 }
 
 //////////////////////////////////////////////////////////////////////
@@ -148,14 +226,30 @@ function isFriend(name, object) {
 //////////////////////////////////////////////////////////////////////
 
 function nonFriends(name, array) {
-    var allNames = [];
-    for (var i = 0; i < array.length; i++){
-        allNames.push(array[i]['name'])
-    }
-
-        array[x].friends[y]
     
-
+// find who person is not friends with 
+// print array of all non-friends
+// make an array of all the names 
+var compareArray = [];
+for (var y = 0; y < array.length; y++) {
+  compareArray.push(array[y]['name'])
+}
+// find index in the array for the person
+var indexN = 0
+for (var self = 0; self < compareArray.length; self++) {
+  if (compareArray[self] === name) {
+    indexN = self;
+  }
+}
+// if name does NOT equal person nor data.friends[0] nor data.friends[1]
+// then we'll push that name into an open array.
+var nonFriend = [];
+for (var index = 0; index < compareArray.length; index++) {
+  if (compareArray[index] !== name && compareArray[index] !== array[indexN].friends[0] && compareArray[index] !== array[indexN].friends[1]) {
+    nonFriend.push(compareArray[index])
+  }
+}
+return nonFriend;
 }
 
 //////////////////////////////////////////////////////////////////////
