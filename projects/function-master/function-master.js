@@ -257,7 +257,8 @@ return nonFriend;
 //////////////////////////////////////////////////////////////////////
 
 function updateObject(object, key, value) {
-
+  object[key] = value;
+  return object
 }
 
 //////////////////////////////////////////////////////////////////////
@@ -266,7 +267,22 @@ function updateObject(object, key, value) {
 
 function removeProperties(object, array) {
 
-}
+  var keyArray = Object.keys(object);
+  var pushArray = [];
+  var valueArray = [];
+  var trimObject = {}
+  
+  for (var i = 0; i < keyArray.length; i++){
+  if (keyArray[i] !== array[0] && keyArray[i] !== array[1]){
+      pushArray.push(keyArray[i])
+      valueArray.push(object[keyArray[i]])
+  }
+  }
+  for (var index = 0; index < pushArray.length; index++){
+    trimObject[pushArray[index]] = valueArray[index]
+  }
+    return trimObject;
+  }
 
 //////////////////////////////////////////////////////////////////////
 // Function 16 - Dedup ///////////////////////////////////////////////
