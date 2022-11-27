@@ -279,7 +279,7 @@ function removeProperties(object, array) {
   }
   }
   for (var index = 0; index < pushArray.length; index++){
-    trimObject[pushArray[index]] = valueArray[index]
+    trimObject[pushArray[index]] = valueArray['index']
   }
     return trimObject;
   }
@@ -289,8 +289,23 @@ function removeProperties(object, array) {
 //////////////////////////////////////////////////////////////////////
 
 function dedup(array) {
-
-}
+  
+  var arrayPush = [];
+  for (var index = 0; index < array.length; index++){
+  if (array[index] !== array[index + 1]){
+    arrayPush.push(array[index])
+  }
+  }
+  
+  var finalArray = [];
+    for (var dex = 0; dex < arrayPush.length; dex++){
+  if (arrayPush[dex] !== arrayPush[dex + 2]){
+    finalArray.push(arrayPush[dex])
+  }
+  }
+    
+    return finalArray;
+  }
 
 //////////////////////////////////////////////////////////////////////
 // DON'T REMOVE THIS CODE ////////////////////////////////////////////
