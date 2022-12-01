@@ -248,16 +248,9 @@ var firstPush = []
         firstPush.push(array[_.indexOf(array, array[i])])
     }
    }
-
    return firstPush;
-
  }
     
-
-
-
-
-
 /** _.filter
 * Arguments:
 *   1) An array
@@ -364,7 +357,19 @@ _.partition = function(array, func){
 *   _.map([1,2,3,4], function(e){return e * 2}) -> [2,4,6,8]
 */
 
-
+_.map = function(collection, func){
+let result = [];
+    if(Array.isArray(collection)){
+        for (let i = 0; i < collection.length; i++){
+            result.push(func(collection[i], i, collection))
+        }
+    } else {
+        for (let key in collection){
+            result.push(func(collection[key], key, collection))
+        }
+    }
+return result
+}
 /** _.pluck
 * Arguments:
 *   1) An array of objects
@@ -376,6 +381,15 @@ _.partition = function(array, func){
 *   _.pluck([{a: "one"}, {a: "two"}], "a") -> ["one", "two"]
 */
 
+_.pluck = function(array, property){
+
+    let result = []
+    
+    for (let i = 0; i < array.length; i++){
+    result.push(array[i][property])
+    }
+return result
+}
 
 /** _.every
 * Arguments:
@@ -443,6 +457,23 @@ _.every = function(collection, test){
 *   _.reduce([1,2,3], function(previousSum, currentValue, currentIndex){ return previousSum + currentValue }, 0) -> 6
 */
 
+_.reduce = function(array, func, seed){
+// 
+let result;    
+// determine if seed did not have a value
+if (seed === undefined){
+    result = array[0];
+    for (let i = 1; i < array.length; i++){
+        result = func(result, array[i], i, array)
+    }
+} else {
+    result = seed;
+    for (let i = 0; i < array.length; i++){
+        result = func(result, array[i], i, array)
+    }
+}
+return result;
+}
 
 /** _.extend
 * Arguments:

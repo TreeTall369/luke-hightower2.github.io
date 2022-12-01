@@ -65,18 +65,26 @@ function makeContactList() {
     } 
 
     contactObject.removeContact = function(contact){ 
-      
-    return contacts.filter(e =>  e.nameFirst === contact.nameFirst)
 
-        } 
+   
+    return contacts.pop(contact);
 
-
-    contactObject.printAllContactNames = function(){}
-
-
-        return contactObject
     }
-  
+
+    contactObject.printAllContactNames = function(){
+
+        var firstArray = []
+        for (var index = 0; index < contacts.length; index++){
+        firstArray.push(contacts[index].nameFirst + ' ' + contacts[index].nameLast)
+}
+
+        return firstArray.join("\n")
+
+}
+
+return contactObject;
+}
+
 // YOUR CODE GOES ABOVE HERE //
 
 
