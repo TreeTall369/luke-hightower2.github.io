@@ -250,7 +250,9 @@ var firstPush = []
    }
    return firstPush;
  }
-    
+
+
+
 /** _.filter
 * Arguments:
 *   1) An array
@@ -413,7 +415,40 @@ return result
 */
 
 _.every = function(collection, test){
+ 
+if(Array.isArray(collection)){
 
+
+
+    if (test === undefined){
+        for(let i = 0; i < collection.length; i++){
+            if(!collection[i]){
+                return false;
+            }
+        }
+    } else {
+        for (let i = 0; i < collection.length; i++){
+            if (test(collection[i], i, collection) === false){
+                return false
+            };
+        }
+    }
+} else {
+        
+    if (test === undefined){
+        for (let key in collection){
+            if (!collection[key]){
+                return false
+            }
+        }
+    } 
+    for (let key in collection){
+            if (test(collection[key], key, collection) === false){
+                return false
+            };
+        }      
+}    
+return true
 }
 
 /** _.some
@@ -437,6 +472,41 @@ _.every = function(collection, test){
 *   _.some([1,2,3], function(e){return e % 2 === 0}) -> true
 */
 
+_.some = function(collection, test){
+
+    if(Array.isArray(collection)){
+
+        if (test === undefined){
+            for(let i = 0; i < collection.length; i++){
+                if(!collection[i]){
+                    return false;
+                }
+            }
+        } else {
+            for (let i = 0; i < collection.length; i++){
+                if (test(collection[i], i, collection) === false){
+                    return false
+                };
+            }
+        }
+    } else {
+            
+        if (test === undefined){
+            for (let key in collection){
+                if (!collection[key]){
+                    return false
+                }
+            }
+        } 
+        for (let key in collection){
+                if (test(collection[key], key, collection) === false){
+                    return false
+                };
+            }      
+    }    
+    return true
+
+}
 
 /** _.reduce
 * Arguments:
