@@ -89,18 +89,13 @@ return n - 1 + sumBelow(n - 1)}
 // Example:  range(2, 9);  // [3, 4, 5, 6, 7, 8]
 var range = function(x, y) {
 
-if (x > y){
-  // countdown from x to y
-  // push x - 1 
-} else if (x < y){
-  // countup from x to y
-  // push x + 1
-}
+let array = []
+array.push(x + 1);
+let newX;
+newX =+ x;
 
 
-return range()
-
-
+return range(newX, y)
 
 };
 
