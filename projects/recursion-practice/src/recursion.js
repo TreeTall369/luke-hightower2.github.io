@@ -90,13 +90,23 @@ return n - 1 + sumBelow(n - 1)}
 var range = function(x, y) {
 
 let array = []
-array.push(x + 1);
-let newX;
-newX =+ x;
-
+let newX = x + 1;
+if (x + 1 !== y){
+  return array.push(x + 1);
+}
 
 return range(newX, y)
 
+var range = function(start, end, def=[]) {
+  if(start === end){
+    return def;
+  }else if (start < end){
+      if(start + 1 === end){
+        def.push(start + 1);
+        return def;
+    } def.push(start + 1);
+  } return range(start + 1, end, def)
+}
 };
 
 // 7. Compute the exponent of a number.
