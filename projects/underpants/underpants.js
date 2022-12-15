@@ -157,16 +157,13 @@ _.last = function(array, number){
 
 _.indexOf = function(array, value){
 
-
-
-
     for (var index = 0; index < array.length; index++){
         if (array[index] === value){
             return index;
         }
     }
 
-    return  -1
+    return  -1;
 
 }
 
@@ -472,40 +469,35 @@ return true
 *   _.some([1,2,3], function(e){return e % 2 === 0}) -> true
 */
 
-_.some = function(collection, test){
 
-    if(Array.isArray(collection)){
+_.some = function(collection, func){
+    if (func === undefined){
+        for (let i = 0; i < collection.length; i++){
+            if (collection[i]){
+                return true
+             }
+        } 
 
-        if (test === undefined){
-            for(let i = 0; i < collection.length; i++){
-                if(!collection[i]){
-                    return false;
-                }
-            }
-        } else {
-            for (let i = 0; i < collection.length; i++){
-                if (test(collection[i], i, collection) === false){
-                    return false
-                };
+    } else { 
+        
+        if (Array.isArray(collection) === true){
+        // apply for loop and use function on each index of array
+        for (let i = 0; i < collection.length; i++){
+            if (func(collection[i], i, collection) === true){
+                return true
             }
         }
     } else {
-            
-        if (test === undefined){
-            for (let key in collection){
-                if (!collection[key]){
-                    return false
-                }
-            }
-        } 
+        // if the collection is an object, use key-loop to apply func
         for (let key in collection){
-                if (test(collection[key], key, collection) === false){
-                    return false
-                };
-            }      
-    }    
-    return true
-
+        // invoke func on each value. if func returns true one time, whole function is true
+            if(func(collection[key], key, collection) === true){
+                return true
+            } 
+        }
+    }
+}
+return false    
 }
 
 /** _.reduce
@@ -559,6 +551,18 @@ return result;
 *   _.extend(data, {b:"two"}); -> data now equals {a:"one",b:"two"}
 *   _.extend(data, {a:"two"}); -> data now equals {a:"two"}
 */
+
+
+_.extend = function(object1, object2, obj={}){
+// copy props from ob2 and put them in ob1 // from 2 >> 1
+
+
+let test = Object.assign(object1, object2, obj)
+return test
+
+}
+
+
 
 //////////////////////////////////////////////////////////////////////
 // DON'T REMOVE THIS CODE ////////////////////////////////////////////

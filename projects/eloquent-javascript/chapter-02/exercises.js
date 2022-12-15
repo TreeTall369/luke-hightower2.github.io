@@ -76,28 +76,21 @@ function fizzBuzz(num1, num2) {
 // 5
 
   function drawChessboard(testNum){
-
-    // let number = 8;
-    // let testNum;
-    
-    // if (number % 2 === 0){
-    //   testNum = number / 2
-    // }
-    
-    // let stringX = '';
-    // let stringO = '';
-    // for (i = 0; i < testNum; i++){
-    //   for (j = 0; j < testNum; j++){
-    //     stringX += '# '
-    //     stringO += ' #'
-    //   } 
-    //     stringX += '\n'
-    //     stringO += '\n'
-    // }
-    
-    // console.log(stringX)
-    
-    // console.log(stringO)
+    let string = ''
+     
+      for (let i = 0; i < testNum; i ++){
+        for (let j = 0; j < testNum; j++){
+          let sum = j + i
+         if (sum % 2 === 0){
+           string += ' '
+         } else if (sum % 1 === 0) { 
+           string += '#'}  
+        }
+       
+      string += '\n'
+       
+      }
+      console.log(string)
   } 
     
 
