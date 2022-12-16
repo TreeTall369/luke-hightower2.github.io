@@ -2,7 +2,51 @@
 // range ///////////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////
 
-function range() {
+function range(num1, num2) {
+// fx should create array with contents of integers within given range
+// need loop for counting up if num1 < is lesser than num2 
+// need looop for counting down num1 > is greater than num2
+// need to check for parameters bein equal to one another --- returns []
+let array = []
+
+if (step === undefined){
+    if (num1 === num2){
+    return array
+    } else if (num1 < num2){
+    // for loop count up from num1 to num2 -- no step factor
+      for (let i = num1; i <= num2; i++){
+        // push acscending range into array
+        array.push(i);
+      }
+    } else {
+    // for loop count down from num1 to num2 -- no step factor
+      for (let j = num1; j >= num2; j--){
+        // push range descending range into arraay
+        array.push(j)
+      }
+    }
+} else if (step > 0){
+  //
+  if (num1 === num2){
+    return array
+    } else if (num1 < num2){
+    // for loop count up from num1 to num2 BY THE STEP FACTOR
+    for (let i = num1; i <= num2; i + step){
+      // push ascending range by step into array 
+      array.push(i)
+    }
+    } else {
+    // for loop count down from num1 to num2 BY THE STEP FACTOR
+    for (let j = num1; j >= num2; j - step){
+      // push descending range by step into array
+      array.push(j)
+    }
+    }
+} else if (step < 0) {
+  return array;
+} 
+
+return array;
 
 }
 
@@ -43,16 +87,22 @@ return array.reverse()
 // arrayToList /////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////
 
-function arrayToList() {
+function arrayToList(array) {
 
+  let list = null;
+  for (let i = array.length -1; i >= 0; i--) {
+      list = { value: array[i], rest: list }
+  }
+  return list;
 }
+
 
 ////////////////////////////////////////////////////////////////////////////////
 // listToArray /////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////
 
-function listToArray() {
-
+function listToArray(list) {
+  
 }
 
 ////////////////////////////////////////////////////////////////////////////////
