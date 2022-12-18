@@ -385,12 +385,13 @@ var capitalizeFirst = function(array, upper=[]) {
   if (array.length === 0){
     return upper
   } else {
-    upper.push(array[0][0].toUpperCase())
-    array[0][0].shift();
     
+    let restOfWord = array[0].split('')
+    let letter = restOfWord[0].toUpperCase();
+    restOfWord.shift()
+    restOfWord.unshift(letter);
+    upper.push(restOfWord.join(''));
   }
-
-
 
   return capitalizeFirst(array.slice(1), upper)
 };
