@@ -164,9 +164,28 @@ if (string.length === 0){
 
 
 // 10. Write a function that determines if a string is a palindrome.
-var palindrome = function(string) {
+var palindrome = function(string, bool=false, array=[], check) {
 // base case
 
+
+if(array.length <= 1 && string.length <= 1){
+  return bool
+} else if(array.length === 0 && string.length > 1){
+   spaceCheck = string.split(' ')
+   spaceLess = spaceCheck.join('')
+   check = spaceLess.toLowerCase()
+   array = check.split('')
+   bool = true
+} else if (array[0] === array[array.length - 1]){
+   array.pop();
+   array.shift();
+   bool = true
+} else if (array[0] !== array[array.length - 1]){
+   return false
+}
+
+
+return palindrome(string.slice(2), bool, array)
 
 // when all front-half letter match last half
 // must have test for strings with odd number of letters/even number of letters
@@ -174,9 +193,9 @@ var palindrome = function(string) {
 // a string of 11 letters divedid by 2 will have a remainder of 1, with 5 and 5, aka 5 pairs of same letters
 // once length of string has reach halway length of orignal string, recursion stops
 // if all letters of back half are same as front half return true else false
-
 // recursive
 // return the func with last letter sliced from string 
+
 };
 
 // 11. Write a function that returns the remainder of x divided by y without using the
