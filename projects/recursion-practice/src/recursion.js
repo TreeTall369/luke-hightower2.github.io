@@ -459,20 +459,73 @@ var augmentElements = function(array, aug) {
 // 33. Reduce a series of zeroes to a single 0.
 // minimizeZeroes([2,0,0,0,1,4]) // [2,0,1,4]
 // minimizeZeroes([2,0,0,0,1,0,0,4]) // [2,0,1,0,4]
-var minimizeZeroes = function(array) {
+var minimizeZeroes = function(array, newArray=[]) {
+  if (array.length === 0){
+    return newArray
+  } else if (array[0] !== 0 ){
+     newArray.push(array[0])
+  } else if (array[0] === 0 && array[1] !== 0){
+    newArray.push(array[0])
+  }
+  return minimizeZeroes(array.slice(1), newArray)
 };
 
 // 34. Alternate the numbers in an array between positive and negative regardless of
 // their original sign.  The first number in the index always needs to be positive.
 // alternateSign([2,7,8,3,1,4]) // [2,-7,8,-3,1,-4]
 // alternateSign([-2,-7,8,3,-1,4]) // [2,-7,8,-3,1,-4]
-var alternateSign = function(array) {
+var alternateSign = function(array, signArray=[]) {
+  // base 
+  if (array.length === 0){
+    return signArray
+  } else if (array[0] < 0 && signArray.length === 0){
+    signArray.push(array[0]*-1)
+  } else if (array[0] > 0 && signArray.length === 0){
+    signArray.push(array[0])
+  } else if (signArray.length % 2 === 0 && array[0] > 0){
+    signArray.push(array[0])
+  } else if (signArray.length % 2 === 0 && array[0] < 0){
+    signArray.push(array[0]*-1)  
+  } else if (signArray.length % 2 === 1 && array[0] < 0){
+    signArray.push(array[0])
+  } else if (signArray.length % 2 === 1 && array[0] > 0){
+    signArray.push(array[0]*-1)
+  }
+  // recursive
+  return alternateSign(array.slice(1), signArray)
 };
 
 // 35. Given a string, return a string with digits converted to their word equivalent.
 // Assume all numbers are single digits (less than 10).
 // numToText("I have 5 dogs and 6 ponies"); // "I have five dogs and six ponies"
-var numToText = function(str) {
+var numToText = function(str, fullWord='') {
+  // base
+  if (str.length === 0){
+    return fullWord
+  } else if (str[0] !== '0' && str[0] !== '1' && str[0] !== '2' && str[0] !== '3' && str[0] !== '4' && str[0] !== '5' && str[0] !== '6' && str[0] !== '7' && str[0] !== '8' && str[0] !== '9'){
+    fullWord += str[0];
+  } else if (str[0] === '0'){
+    fullWord += 'zero'
+  } else if (str[0] === '1'){
+    fullWord += 'one'
+  } else if (str[0] === '2'){
+    fullWord += 'two'
+  } else if (str[0] === '3'){
+    fullWord += 'three'
+  } else if (str[0] === '4'){
+    fullWord += 'four'
+  } else if (str[0] === '5'){
+    fullWord += 'five'
+  } else if (str[0] === '6'){
+    fullWord += 'six'
+  } else if (str[0] === '7'){
+    fullWord += 'seven'
+  } else if (str[0] === '8'){
+    fullWord += 'eight'
+  } else if (str[0] === '9'){
+    fullWord += 'nine'}
+// recursive
+  return numToText(str.slice(1), fullWord)
 };
 
 // *** EXTRA CREDIT ***
