@@ -249,20 +249,25 @@ var gcd = function(x, y) {
 // compareStr('house', 'houses') // false
 // compareStr('', '') // true
 // compareStr('tomato', 'tomato') // true
-var compareStr = function(str1, str2) {
+var compareStr = function(str1, str2, bool=false) {
 // base
-if (str1 === '' && str2 === ''){
-  return true
+if (str1.length === 1 && str2.length === 1 && str1[0] !== str2[0]){
+  return bool;
+} else if(str1.length === 1 && str2.length === 1 && str1[0] === str2[0]){
+  bool = true
+  return bool;
 } else if (str1.length !== str2.length){
-  return false
-} else if (str1.charAt(0) !== str2.charAt(0)){
-  return false
-} else if (str1.length === 1 && str1[0] === str2[0]){
-  return true
-} else {
-//  recursive
-return (compareStr(str1.slice(1), str2.slice(1)))
-}
+  return bool;
+} else if (str1 === '' && str2 === ''){
+  bool = true
+  return bool;
+} else if (str1[0] !== str2[0]){
+  return bool
+} else if (str1[0] === str2[0]){
+  bool = true
+  return bool
+} 
+return compareStr(str1.slice(1), str2.slice(1), bool);
 };
 
 // 16. Write a function that accepts a string and creates an array where each letter
