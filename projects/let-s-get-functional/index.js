@@ -112,11 +112,11 @@ var firstLetterCount = function(array, letter){
     return count
 };
 
-var friendFirstLetterCount = function(array, letter){
+var friendFirstLetterCount = function(array, customer, letter){
     let count = 0
     for (let index = 0; index < array.length; index++){
         for(let j = 0; j < array[index].friends.length; j++)
-            if(array[index].friends[j].name[0].toLowerCase() === letter.toLowerCase()){
+            if(array[index].name === customer && array[index].friends[j].name[0].toLowerCase() === letter.toLowerCase()){
                 count++
         }
     }
