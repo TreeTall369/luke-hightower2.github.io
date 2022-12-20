@@ -388,7 +388,25 @@ var fibonacci = function(n) {
 // nthFibo(5); // 5
 // nthFibo(7); // 13
 // nthFibo(3); // 2
-var nthFibo = function(n) {
+var nthFibo = function(digit, array=[]) {
+
+    if (digit < 0){
+    return null
+    } else if (digit === 0 && array.length === 0){
+    return 0
+    } else if (digit === 0){
+      return array[array.length - 1]
+    } else if (array.length === 0){
+        array.push(0)
+        array.push(1)
+    } else if (array.length >= 1){
+        z = array[array.length - 2] + array[array.length - 1]
+        array.push(z)
+    }
+
+    
+    return nthFibo(digit - 1, array)
+
 };
 
 // 26. Given an array of words, return a new array containing each word capitalized.
