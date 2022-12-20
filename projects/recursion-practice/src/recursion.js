@@ -62,20 +62,22 @@ var arraySum = function(array) {
  };
 
 // // 4. Check if a number is even.
-var isEven = function(n) {
-// base case
+var isEven = function(n, bool=true) {
+  // base case
+  
+        if(n < 0){
+          return isEven(n+2, bool) 
+        } else if (n === 0 || n === 2) {
+          return true;
+        } else if (n <= 3 || n === 1) {
+          return false;
+        } else if (n > 1){
+          return isEven(n-2, bool);
+        } 
+          return bool
+  
 
-let test = [n]
-  if (test[0] === 0) {
-    return true;
-} else if (test[0] === 1) {
-    return false;
-} 
-
-// recursive case
-    return isEven(test[0] - 2);
-
-}
+  }
 
 // 5. Sum all integers below a given integer.
 // sumBelow(10); // 45

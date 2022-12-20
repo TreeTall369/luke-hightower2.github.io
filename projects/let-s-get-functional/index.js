@@ -75,6 +75,8 @@ var averageBalance = function(array){
     let h = newHolder.join('')
     let s = h.split(' ')
     let sum = _.reduce(array, function(acc, cur){
+
+        // MAYBE problem is here ... Need to make yet another loop to ensure they are numbers in an array then reduce?
         return Number(acc) + Number(cur)
     }, 0)
     let members = array.length
