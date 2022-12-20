@@ -59,48 +59,28 @@ var youngestCustomer = function(array){
 };
 
 var averageBalance = function(array){
-
-//      let array = [{balance: '$1,000.00'}, {balance: '$1,000.00'}, {balance: '$1,000.00'}]
-//      let arr1 = []
-
-//      for (index = 0; index < array.length; index++){
-//      for (j = 0; j < array[index].balance.length; j++)
-//      if (array[index].balance[j] !== '$' && array[index].balance[j] !== ','){
-//      arr1.push(array[index].balance[j])
-//      } 
-//      arr1.push(' ')
-//      }
-//     let cash = arr1.join(''))
-
-
-
+    let holder = [];
+    for (index = 0; index < array.length; index++){
+      holder.push(array[index].balance.split(''))
+    }
+    let newHolder = [];
+    for(let i = 0; i < holder.length; i++){
+      for(let j = 0; j < holder[i].length; j++){
+        if(holder[i][j] !== '$' && holder[i][j] !== ','){
+          newHolder.push(holder[i][j])
+        }
+      }
+      newHolder.push(' ')
+    }
+    let h = newHolder.join('')
+    let s = h.split(' ')
     let sum = _.reduce(array, function(acc, cur){
-            let clear1 = acc.balance
-            let clear2 = cur.balance
-            let arr1 = []
-            let arr2 = []
-            for (index = 0; index < clear1.length; index++){
-                if (clear1[index] !== '!' && clear1[index] !== ','){
-                    arr1.push(clear1[index])
-                }
-            }
-            for (index = 0; index < clear2.length; index++){
-                if (clear2[index] !== '!' && clear2[index] !== ','){
-                    arr2.push(clear2[index])
-                }
-            }
-        
-
-        let test1 = Number(arr1.join('')) 
-        let test2 = Number(arr2.join(''))
-        return test1 + test2
-    })
-
-    let items = array.length
-    let avg = sum / items
-
-    return avg;
-};
+        return Number(acc) + Number(cur)
+    }, 0)
+    let members = array.length
+    let avg = sum.toFixed()/members
+      return avg
+    }
 
 var firstLetterCount = function(array, letter){
     let count = 0
@@ -135,14 +115,6 @@ var friendsCount = function(array, title){
 };
 
 var topThreeTags = function(){
-    let commonTags = []
-    for (let index = 0; index < array.length; index++){
-        for(let j = 0; j < array[index].tags.length; j++)
-            if(array[index].tags[j].name === title){
-                list.push(array[index].name)
-        }
-    }
-    return list
 };
 
 var genderCount = function(array){
